@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcel Template Victor</title>
+    <link rel="stylesheet" href="./scss/app.scss">
+    <script src="./js/app.js" type="module"></script>
+</head>
+
+<body>
+<div class="container">
+    <div class="main">
+        <!--      <div class="logo"><img style="width: 40px" src="./img/LogoTrello.png" alt="logoTrello"></div>-->
+        <div class="trello">
+            <h1>Trello<h1>
+        </div>
+        <div class="clock" id="clock"></div>
+    </div>
+    <div class="wrapper">
+        <div class="card ">
+            <div class="card_title green">
+                <div class="state">TODO</div>
+                <div class="count">0</div>
+            </div>
+            <div class="card_main"></div>
+            <div class="card_btn">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Add todo
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card_title gray">
+                <div class="state">IN PROGRESS</div>
+                <div class="count">0</div>
+            </div>
+            <div class="card_main"></div>
+            <div class="card_btn">
+
+            </div>
+        </div>
+        <div class="card">
+            <div class="card_title cyan">
+                <div class="state">DONE</div>
+                <div class="count">0</div>
+            </div>
+            <div class="card_main"></div>
+            <div class="card_btn">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Delete All
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

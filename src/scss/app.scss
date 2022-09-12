@@ -1,0 +1,68 @@
+@import 'bootstrap/scss/bootstrap';
+
+// Components
+@import './button';
+
+$radius_wraper:1rem;
+
+
+.main{
+   width: 1200px;
+   margin-top: 20px;
+   padding: 15px;
+   display: flex;
+   justify-content:space-between;
+   border-style: solid;
+   border-radius: $radius_wraper ;
+   background-color: rgb(136,114,157);
+
+}
+.clock{
+  background-color: white;
+  padding: 5px 10px;
+  color: black;
+  border-radius: $radius_wraper ;
+  font-size: 2rem;
+}
+.trello{
+  color: white;
+  text-align: left;
+}
+
+.wrapper{
+  width: 1200px;
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  align-self: stretch;
+  justify-content:space-between;
+}
+
+.card{
+  text-align: center;
+  width: 380px;
+  border-style: solid;
+  border-radius: $radius_wraper ;
+}
+
+.card_title{
+  display: flex;
+  justify-content:space-around;
+  font-size: 2rem;
+  text-transform:uppercase;
+  font-weight:bolder;
+  border-style: solid;
+  border-radius: $radius_wraper ;
+}
+
+.green{
+  background-color: rgb(217,238,231);
+}
+
+.gray{
+  background-color: rgb(193,209,215);
+}
+
+.cyan{
+  background-color: rgb(180,224,236);
+}

@@ -1,0 +1,30 @@
+$component: 'btn';
+
+$button-font-size: 1rem;
+$button-padding: 0.5rem 1rem;
+$button-border-radius: 0.5rem;
+$enabled-box-shadow: false;
+
+.#{$component} {
+  display: inline-flex;
+  align-items: center;
+  font-size: $button-font-size;
+  padding: $button-padding;
+  border-radius: $button-border-radius;
+
+  @if $enabled-box-shadow {
+    box-shadow: 0px 0px 4px #333;
+  }
+
+  &_primary {
+    // background: #000;
+
+    .#{$component} + & {
+      // ...
+    }
+  }
+
+  & + & {
+    margin-left: ($spacer * 2);
+  }
+}
