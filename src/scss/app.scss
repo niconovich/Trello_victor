@@ -4,7 +4,9 @@
 @import './button';
 
 $radius_wraper:1rem;
-
+$green:rgb(217,238,231);
+$gray:rgb(193,209,215);
+$cyan:rgb(180,224,236);
 
 .main{
    width: 1200px;
@@ -54,15 +56,48 @@ $radius_wraper:1rem;
   border-style: solid;
   border-radius: $radius_wraper ;
 }
+.cart_main{
+  overflow:auto;
+}
+
+
+.todo{
+  margin-top: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: $radius_wraper ;
+  align-self: stretch;
+  justify-content:space-between;
+  border-style: solid;
+  background-color:$green;
+}
+.dodo_title{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  padding: 5px 3px;
+}
+.todo_desc{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  padding: 5px 3px;
+}
+.todo_footer{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  padding: 5px 3px;
+}
 
 .green{
-  background-color: rgb(217,238,231);
+  background-color: $green;
 }
 
 .gray{
-  background-color: rgb(193,209,215);
+  background-color: $gray;
 }
 
 .cyan{
-  background-color: rgb(180,224,236);
+  background-color: $cyan;
 }
