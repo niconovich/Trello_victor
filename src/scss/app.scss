@@ -8,44 +8,63 @@ $green:rgb(217,238,231);
 $gray:rgb(193,209,215);
 $cyan:rgb(180,224,236);
 
-.main{
-   width: 1200px;
-   margin-top: 20px;
-   padding: 15px;
-   display: flex;
-   justify-content:space-between;
-   border-style: solid;
-   border-radius: $radius_wraper ;
-   background-color: rgb(136,114,157);
+.container{
+  width: 1200px;
+  margin: 0 auto;
+}
 
-}
-.clock{
-  background-color: white;
-  padding: 5px 10px;
-  color: black;
-  border-radius: $radius_wraper ;
-  font-size: 2rem;
-}
-.trello{
-  color: white;
-  text-align: left;
-}
 
 .wrapper{
   width: 1200px;
   margin-top: 10px;
   padding: 10px;
   display: flex;
-  align-self: stretch;
+  align-items : stretch;
+  border-style: solid;
   justify-content:space-between;
 }
+.clock{
+  width: 200px;
+  padding: 10px;
+}
+.main{
+   width: 1200px;
+   margin-top: 20px;
+   padding: 15px;
+   display: flex;
+   flex-direction: row;
+   justify-content:space-between;
+   border-style: solid;
+   border-radius: $radius_wraper ;
+   background-color: rgb(136,114,157);
 
-.card{
+}
+
+.card_list{
+  display: flex;
+  border-style: solid;
+  flex-direction: column;
+  justify-content:space-around;
+  background-color: white;
+  //padding: 5px 10px;
+  color: black;
+  border-radius: $radius_wraper ;
+}
+.card_title{
+
+
+  font-size: 2rem;
   text-align: center;
-  width: 380px;
+  width: 370px;
   border-style: solid;
   border-radius: $radius_wraper ;
 }
+
+.trello{
+  color: white;
+  text-align: left;
+}
+
 
 .card_title{
   display: flex;
@@ -59,7 +78,6 @@ $cyan:rgb(180,224,236);
 .cart_main{
   overflow:auto;
 }
-
 
 .todo{
   margin-top: 10px 10px;
@@ -89,7 +107,9 @@ $cyan:rgb(180,224,236);
   justify-content:space-between;
   padding: 5px 3px;
 }
-
+.card_main{
+  min-height: 800px;
+}
 .green{
   background-color: $green;
 }
