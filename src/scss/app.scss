@@ -1,12 +1,14 @@
 @import 'bootstrap/scss/bootstrap';
 
 // Components
+@import './constant';
 @import './button';
+@import './todo';
 
-$radius_wraper:1rem;
-$green:rgb(217,238,231);
-$gray:rgb(193,209,215);
-$cyan:rgb(180,224,236);
+
+a{
+  text-decoration: none;
+}
 
 .container{
   width: 1200px;
@@ -20,12 +22,17 @@ $cyan:rgb(180,224,236);
   padding: 10px;
   display: flex;
   align-items : stretch;
-  border-style: solid;
   justify-content:space-between;
+  border-radius: $radius_wraper ;
 }
 .clock{
   width: 200px;
   padding: 10px;
+  font-size: 2rem;
+  text-align: center;
+  background-color: white;
+  border-style: solid;
+  border-radius: $radius_wraper ;
 }
 .main{
    width: 1200px;
@@ -34,7 +41,7 @@ $cyan:rgb(180,224,236);
    display: flex;
    flex-direction: row;
    justify-content:space-between;
-   border-style: solid;
+   align-self:center;
    border-radius: $radius_wraper ;
    background-color: rgb(136,114,157);
 
@@ -42,21 +49,11 @@ $cyan:rgb(180,224,236);
 
 .card_list{
   display: flex;
-  border-style: solid;
   flex-direction: column;
-  justify-content:space-around;
+  justify-content:space-between;
   background-color: white;
-  //padding: 5px 10px;
+  padding: 5px 10px;
   color: black;
-  border-radius: $radius_wraper ;
-}
-.card_title{
-
-
-  font-size: 2rem;
-  text-align: center;
-  width: 370px;
-  border-style: solid;
   border-radius: $radius_wraper ;
 }
 
@@ -67,12 +64,15 @@ $cyan:rgb(180,224,236);
 
 
 .card_title{
+  border-style: solid;
+  min-width: 370px;
   display: flex;
-  justify-content:space-around;
+  justify-content:space-between;
   font-size: 2rem;
+  text-align: center;
   text-transform:uppercase;
   font-weight:bolder;
-  border-style: solid;
+  border:2px solid;
   border-radius: $radius_wraper ;
 }
 .cart_main{
@@ -80,13 +80,13 @@ $cyan:rgb(180,224,236);
 }
 
 .todo{
-  margin-top: 10px 10px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   border-radius: $radius_wraper ;
   align-self: stretch;
   justify-content:space-between;
-  border-style: solid;
+  border:$border solid;
   background-color:$green;
 }
 .dodo_title{
@@ -108,7 +108,7 @@ $cyan:rgb(180,224,236);
   padding: 5px 3px;
 }
 .card_main{
-  min-height: 800px;
+  min-height: 100px;
 }
 .green{
   background-color: $green;
@@ -121,3 +121,45 @@ $cyan:rgb(180,224,236);
 .cyan{
   background-color: $cyan;
 }
+
+.cardBtn.green{
+  transition-duration: 0.4s;
+  color: black;
+  text-align: center;
+  font-size: 2rem;
+  text-transform:uppercase;
+  font-weight: bolder;
+  background-color: $green;
+  border-radius: $radius_wraper ;
+  border: $border solid black;
+}
+.cardBtn.green:hover{
+  color: $green;
+  background-color: white;
+  border: $border solid $green;
+}
+.cardBtn.cyan{
+  transition-duration: 0.4s;
+  color: black;
+  text-align: center;
+  font-size: 2rem;
+  text-transform:uppercase;
+  font-weight: bolder;
+  background-color: $cyan;
+  border-radius: $radius_wraper ;
+  border: $border solid black;
+}
+.cardBtn.cyan:hover{
+  color: $cyan;
+  background-color: white;
+  border: $border solid $cyan;
+}
+
+
+.modal-footer{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+
+
