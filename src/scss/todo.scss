@@ -28,6 +28,7 @@
 }
 
 .todo_back{
+    max-width: 5px;
     position: relative;
     text-align: center;
     background-color: #f8f9fa;;
@@ -36,6 +37,7 @@
 }
 
 .todo_next{
+    max-width: 5px;
     text-align: center;
     background-color: #f8f9fa;;
     //border:1px solid;
@@ -58,6 +60,7 @@
 }
 
 .btn.todobtn{
+
     border: 1px black;
     margin-left: 5px;
     height: 10px;

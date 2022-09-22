@@ -25,52 +25,18 @@
         <div class="card_list">
             <div class="card_title green">
                 <div class="state">TODO</div>
-                <div class="count">0</div>
+                <div class="count" id="count_todo">0</div>
             </div>
-            <div class="card_main"></div>
+            <div class="card_main" id="main_todo"></div>
 
-            <div class="d-grid gap-2" id="addTodo">
-                <button type="button" class="cardBtn green" data-bs-toggle="modal" data-bs-target="#modalAdd">ADD TODO
-                </button>
-            </div>
+
         </div>
         <div class="card_list">
             <div class="card_title gray">
                 <div class="state">IN PROGRESS</div>
-                <div class="count">0</div>
+                <div class="count" id="count_progress">0</div>
             </div>
-            <div class="card_main">
-                <div class="todo gray" id="totdoId">
-                    <div class="todo_head">
-                        <div class="head_title">Title</div>
-                        <div class="head_btn">
-
-
-                            <button type="button" class="btn btn-light todobtn none" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal" id="EditTodo">
-                                Edit
-                            </button>
-                            <button type="button" class="btn btn-light todobtn" id="BackTodo">
-                                Back
-                            </button>
-                            <button type="button" class="btn btn-light todobtn none" id="DeleteTodo">
-                                Delete
-                            </button>
-                            <button type="button" class="btn btn-light todobtn" id="ComleteTodo">
-                                Complete
-                            </button>
-                        </div>
-                    </div>
-                    <div class="todo_body">
-                        <div class="todo_back"><</div>
-                        <div class="body_text">Текст задачи</div>
-                        <div class="todo_next">></div>
-                    </div>
-                    <div class="todo_footer">
-                        <div class="todo_user">Иванов</div>
-                        <div class="todo_time">10:10</div>
-                    </div>
-                </div>
+            <div class="card_main" id="main_progress">
             </div>
             <div class="d-grid gap-2">
             </div>
@@ -78,59 +44,65 @@
         <div class="card_list">
             <div class="card_title cyan">
                 <div class="state">DONE</div>
-                <div class="count">0</div>
+                <div class="count" id="count_done">0</div>
             </div>
-            <div class="card_main"></div>
-            <div class="d-grid gap-2" id="AllDelete">
-                <button type="button" class="cardBtn cyan">Delete ALL</button>
+            <div class="card_main" id="main_done"></div>
+
+        </div>
+    </div>
+    <div class="wrapperBtn">
+        <div class="card_list ">
+            <div class="d-grid gap-2">
+                <button type="button" class="cardBtn green" data-bs-toggle="modal" data-bs-target="#modalAdd"
+                        id="addTodo">ADD TODO
+                </button>
+
             </div>
         </div>
+        <div class="card_list "></div>
+        <div class="card_list ">
+        <div class="d-grid gap-2" id="AllDelete">
+            <button type="button" class="cardBtn cyan" id="DeleteALL">Delete ALL</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<!-- Button trigger modal -->
 
 
-        <!-- Button trigger modal -->
-
-
-        <!-- Modal -->
-        <div class="modal fade" id="modalAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h6 class="modal-title" id="exampleModalLabel">Добавление ToDo</h6>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="title">tttt</div>
-                        <div class="body">dfghdsfgsd fgsdfgsfdb</div>
-                    </div>
-                    <div class="modal-footer">
-                        <div class="selectUser">
-                            <p><select size="5"  horizontal-tbmultiple name="hero[]">
-                                <option disabled>Select user</option>
-                                <option value="Чебурашка">Чебурашка</option>
-                                <option  value="Крокодил Гена">Крокодил Гена</option>
-                                <option value="Шапокляк">Шапокляк</option>
-                                <option value="Крыса Лариса">Крыса Лариса</option>
-                            </select></p>
-<!--                            <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--                                Select user-->
-<!--                            </button>-->
-<!--                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">-->
-<!--                                <li><a class="dropdown-item" href="#">Dropdown link</a></li>-->
-<!--                                <li><a class="dropdown-item" href="#">Dropdown link</a></li>-->
-<!--                            </ul>-->
-                        </div>
-                        <div class="btnform">
-                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-light">Confirm</button>
-                        </div>
-
-                    </div>
+<!-- Modal -->
+<div class="modal " id="modalAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">Добавление ToDo</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><input class="title" type="text" name="titleForm"></p>
+                <textarea class="body" cols=60 name="bodyForm"> </textarea>
+            </div>
+            <div class="modal-footer">
+                <div class="selectUser">
+                    <p>
+                        <select size="1" name="userName" id="selectUser"> </select>
+                    </p>
                 </div>
+                <div class="btnform">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-light" id="addConfirm" data-bs-dismiss="modal">
+                        Confirm
+                    </button>
+                </div>
+
             </div>
         </div>
+    </div>
+</div>
 
 
-        <div class="overlay" id="overlay-modal"></div>
+<div class="overlay" id="overlay-modal">
 </body>
 
 </html>

@@ -25,6 +25,16 @@ a{
   justify-content:space-between;
   border-radius: $radius_wraper ;
 }
+.wrapperBtn{
+  width: 1200px;
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  align-items : stretch;
+  justify-content:space-between;
+  border-radius: $radius_wraper ;
+}
+
 .clock{
   width: 200px;
   padding: 10px;
@@ -34,6 +44,12 @@ a{
   border-style: solid;
   border-radius: $radius_wraper ;
 }
+
+.trello{
+  color: white;
+  text-align: left;
+}
+
 .main{
    width: 1200px;
    margin-top: 20px;
@@ -48,24 +64,19 @@ a{
 }
 
 .card_list{
+  height: 720px;
   display: flex;
   flex-direction: column;
-  justify-content:space-between;
+  justify-content:start;
   background-color: white;
   padding: 5px 10px;
   color: black;
   border-radius: $radius_wraper ;
 }
 
-.trello{
-  color: white;
-  text-align: left;
-}
-
-
 .card_title{
   border-style: solid;
-  min-width: 370px;
+  width: 370px;
   display: flex;
   justify-content:space-between;
   font-size: 2rem;
@@ -75,9 +86,13 @@ a{
   border:2px solid;
   border-radius: $radius_wraper ;
 }
-.cart_main{
+
+.card_main{
+  display: block;
+  height: 600px;
   overflow:auto;
 }
+
 
 .todo{
   margin-top: 10px;
@@ -107,9 +122,7 @@ a{
   justify-content:space-between;
   padding: 5px 3px;
 }
-.card_main{
-  min-height: 100px;
-}
+
 .green{
   background-color: $green;
 }
@@ -123,6 +136,8 @@ a{
 }
 
 .cardBtn.green{
+  margin-top: 10px;
+  width: 370px;
   transition-duration: 0.4s;
   color: black;
   text-align: center;
@@ -139,6 +154,8 @@ a{
   border: $border solid $green;
 }
 .cardBtn.cyan{
+  width: 370px;
+  margin-top: 10px;
   transition-duration: 0.4s;
   color: black;
   text-align: center;
