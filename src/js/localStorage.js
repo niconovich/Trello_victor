@@ -17,4 +17,30 @@ function listUser() {
     return usersJson
 }
 
-export {idToUserName, listUser}
+function getCard(id) {
+    let allCard = JSON.parse(localStorage.getItem('card'));
+    for (let it of allCard) {
+        if (it.id == id)   return it
+    }
+    log('Объект не найден')
+    return []
+}
+
+function setCard(id,title,body,userNameId){
+    log(`setCard ${id}.`)
+    let allCard = JSON.parse(localStorage.getItem('card'));
+    for (let item of allCard) {
+        log(item)
+        if (item.id == id)   {
+            item.title=title
+            item.body=body
+            item.userNameId=userNameId
+            item.userName=idToUserName(userNameId)
+            log(`title- ${title}`)
+        }
+    }
+    log(JSON.stringify(allCard))
+    localStorage.setItem('card',JSON.stringify(allCard))
+}
+
+export {idToUserName, listUser, getCard, setCard}

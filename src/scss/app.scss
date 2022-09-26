@@ -74,6 +74,10 @@ a{
   border-radius: $radius_wraper ;
 }
 
+.card_list.btn{
+  height: 40px;
+ }
+
 .card_title{
   border-style: solid;
   width: 370px;
@@ -89,8 +93,9 @@ a{
 }
 
 .card_main{
+  margin-top: 20px;
   display: block;
-  height: 600px;
+  height: 585px;
   overflow:auto;
 }
 
