@@ -1,6 +1,6 @@
 import {$, log} from './helpers.js';
 import {users} from './jsonplaceholder.js'
-import {idToUserName, listUser,setEditCard} from './localStorage.js'
+import {idToUserName, listUser, setEditCard} from './localStorage.js'
 
 class ToDo {
     constructor(title, body, userNameId, dateCreate, state) {
@@ -15,17 +15,30 @@ class ToDo {
     }
 }
 
+const allToDo = {
+    'todo': [],
+    'progress': [],
+    'done': [],
+}
+
+
 function createToDo() {
+    let cardStorage = localStorage.getItem('card');
+    let card = cardStorage ? JSON.parse(cardStorage) : allToDo
+    for (let key in allToDo) {
+        allToDo[key] = card[key]
+    }
+    let state = 'todo'
     let title = $('[name="titleForm"]').value
     let body = $('[name="bodyForm"]').value
     let userNameId = $('[name="userName"]').value
     let dateCurrent = new Date()
     const cardTodo = new ToDo(title, body, userNameId, dateCurrent, 'todo')
-    let cardStorage = localStorage.getItem('card');
-    let card = cardStorage ? JSON.parse(cardStorage) : []
-    card.push(cardTodo)
-    localStorage.setItem('card', JSON.stringify(card));
-    render(card)
+    let array = allToDo[state]
+    array.push(cardTodo)
+    allToDo[state] = array
+    localStorage.setItem('card', JSON.stringify(allToDo));
+    render(allToDo)
 }
 
 function renderToDo({id, title, body, userName, time, state}) {
@@ -74,7 +87,7 @@ function renderToDo({id, title, body, userName, time, state}) {
 
 
 function render(allList) {
-    let cout = {
+    let count = {
         todo: 0,
         progress: 0,
         done: 0
@@ -83,19 +96,18 @@ function render(allList) {
     mainAllEllement.forEach((item) => item.innerHTML = null)
     const countllEllement = document.querySelectorAll('.count')
     countllEllement.forEach((item) => item.textContent = 0)
-    allList.forEach((item) => {
+    for (let key in allList) {
+        allList[key].forEach((item) => {
             const mainEllement = $(`#main_${item.state}`)
             let startinnerHTML = mainEllement.innerHTML
-            cout[item.state] += 1
+            count[item.state] += 1
             const countTodoEllement = document.querySelector(`#count_${item.state}`)
-            countTodoEllement.textContent = cout[item.state]
+            countTodoEllement.textContent = count[item.state]
             startinnerHTML += renderToDo(item)
             mainEllement.innerHTML = startinnerHTML
-        }
-    )
-
+        })
+    }
 }
-
 
 
 export {createToDo, render}

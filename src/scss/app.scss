@@ -74,9 +74,7 @@ a{
   border-radius: $radius_wraper ;
 }
 
-.card_list.btn{
-  height: 40px;
- }
+
 
 .card_title{
   border-style: solid;
@@ -141,6 +139,10 @@ a{
   background-color: $cyan;
 }
 
+.card_list.btn{
+  height: 60px;
+  border-style: none;
+}
 .cardBtn.green{
   margin-top: 10px;
   width: 370px;
@@ -175,7 +177,7 @@ a{
 .cardBtn.cyan:hover{
   color: $cyan;
   background-color: white;
-  border: $border solid $cyan;
+ border: $border solid $cyan;
 }
 
 
