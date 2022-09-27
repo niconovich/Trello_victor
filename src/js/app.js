@@ -81,30 +81,36 @@ wrapperBtnEllement.addEventListener('click', function (event) {
 
 wrapperEllement.addEventListener('click', function (event) {
     let target = event.target
-    let idCurrent = target.parentElement.parentElement.id
+    let idCurrent
+    if (target.id == 'next'||target.id == 'back'){
+        idCurrent = target.parentElement.parentElement.id
+    } else if (target.id == 'xNext'||target.id == 'xBack'){
+        idCurrent = target.parentElement.parentElement.parentElement.id
+    } else if (target.id == 'EditTodo'||target.id == 'DeleteTodo'){
+        idCurrent=target.parentElement.parentElement.parentElement.parentElement.id
+    }
 
-    if (target.id == 'next') {
+    log(target.id)
+    if (target.id == 'next'||target.id == 'xNext') {
         let todo=getCard(idCurrent)
         let nextState=todo.state=='todo'?'progress':'done'
         changeState(idCurrent,todo.state,nextState)
         let cardStorage = JSON.parse(localStorage.getItem('card'))
         render(cardStorage)
-    } else if (target.id == 'back') {
+    } else if (target.id == 'back'||target.id == 'xBack') {
         let todo=getCard(idCurrent)
         let nextState=todo.state=='done'?'progress':'todo'
         changeState(idCurrent,todo.state,nextState)
         let cardStorage = JSON.parse(localStorage.getItem('card'))
         render(cardStorage)
     } else if (target.id == 'DeleteTodo') {
-        idCurrent=event.target.parentElement.parentElement.parentElement.parentElement.id
-        log(idCurrent)
         deleteCard(idCurrent)
         let cardStorage = JSON.parse(localStorage.getItem('card'))
         render(cardStorage)
         if (cardStorage['done'].length==0) {delAllEllement.disabled=true}
     } else if (target.id == 'EditTodo') {
-        target = event.target
-        idCurrent=target.parentElement.parentElement.parentElement.parentElement.id
+
+
         renderEdit(idCurrent)
     }
 

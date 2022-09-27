@@ -83,10 +83,28 @@ function renderToDo({id, title, body, userName, time, state}) {
                         </div>
                     </div>
                     <div class="todo_body">
-                        <button type="button" class="btn btn-light todo_back ${btnBack}" id="back"><</button>
-                          <div class="body_text"><span><b>Описание:</b></span><br>
+                    
+<svg class="strelka-left-5 ${btnBack}" viewBox="0 0 154 109" id="back">
+    <symbol id="strelka" viewBox="-73.9 -55.3 135.9 85.4">
+        <g>
+            <polygon points="-73.9,29.1 -6,-9.2 61.9,30.1 61.9,14.2 -6,-25.1 -73.9,14.2 "></polygon>
+        </g>
+        <g>
+            <polygon points="-73.9,-1 -6,-39.3 61.9,0 61.9,-16 -6,-55.3 -73.9,-16 "></polygon>
+        </g>
+    </symbol>
+    <use xlink:href="#strelka" id="xBack" width="135.9" height="85.4" id="XMLID_1_" x="-73.9" y="-55.3" transform="matrix(1.007 0 0 -1.007 83.0005 42)" ></use>
+</svg>
+                    <div class="body_text"><span><b>Описание:</b></span><br>
                         ${body}</div>
-                         <button type="button" class="btn btn-light todo_next ${btnNext}" id="next">></button>
+                          <svg class="strelka-right-5 ${btnNext}" viewBox="0 0 154 109"  id="next">
+                                <symbol id="strelka" viewBox="-73.9 -55.3 135.9 85.4">
+                                    <g><polygon points="-73.9,29.1 -6,-9.2 61.9,30.1 61.9,14.2 -6,-25.1 -73.9,14.2 "></polygon> </g>
+                                    <g><polygon points="-73.9,-1 -6,-39.3 61.9,0 61.9,-16 -6,-55.3 -73.9,-16 "></polygon>  </g>
+                                </symbol>
+                            <use xlink:href="#strelka" id="xNext" width="135.9" height="85.4" id="XMLID_1_" x="-73.9" y="-55.3" transform="matrix(1.007 0 0 -1.007 83.0005 42)" ></use>
+                    </svg>
+                         
                     </div>
                     <div class="todo_footer">
                         <div class="todo_user"><span><b>Ответсвенный:</b></span><br>${userName}</div>

@@ -105,3 +105,34 @@
   justify-content: space-between;
   padding: 5px 3px;
 }
+
+
+.strelka-left-5,
+.strelka-right-5
+ {
+  margin: 10px 4px;
+  width: 35px;
+  //height: 20px;
+  cursor: pointer;
+  fill: grey;
+  transition: fill 0.5s ease-out, transform 0.3s ease-in;
+}
+.strelka-left-5 {
+  transform: rotate(90deg);
+}
+.strelka-right-5 {
+  transform: rotate(270deg);
+}
+
+.strelka-left-5:hover,
+.strelka-right-5:hover
+ {
+  fill: #BFE2FF;
+  transform: scale(1.2);
+}
+.strelka-left-5:hover {
+  transform: rotate(90deg) scale(1.2);
+}
+.strelka-right-5:hover {
+  transform: rotate(270deg) scale(1.2);
+}
