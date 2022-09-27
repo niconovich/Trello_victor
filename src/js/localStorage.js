@@ -1,6 +1,8 @@
-import {log} from './helpers.js'
+import {$, log} from './helpers.js'
+import { Modal } from 'bootstrap'
 
-
+const delAllEllement=$('#DeleteALL')
+const upLimitEllement=$('#upLimit')
 function idToUserName(id) {
     let usersJson = JSON.parse(localStorage.getItem('usersJson'));
     let user = ''
@@ -32,7 +34,6 @@ function getCard(id) {
 function setCard(id, title, body, userNameId) {
     log(`setCard ${id}.`)
     let allCard = JSON.parse(localStorage.getItem('card'));
-
     if (id != null) {
         let card = getCard(id)
         for (let item of allCard[card.state]) {
@@ -53,11 +54,16 @@ function setCard(id, title, body, userNameId) {
 }
 
 function changeState(idCurrent, oldState, newState) {
+    if (newState=='done') {delAllEllement.disabled=false}
     let allCard = JSON.parse(localStorage.getItem('card'));
     let newStateObject = []
     let oldStateObject = []
-    allCard[newState].forEach((item) =>
-        {console.dir(item)
+    if (allCard[newState].length==5) {
+        console.dir(upLimitEllement)
+        const myModal = new Modal(document.getElementById('upLimit'))
+        myModal.show();
+        }
+    allCard[newState].forEach((item) => {
         newStateObject.push(item)})
     const changeCard = getCard(idCurrent)
     changeCard.state = newState
@@ -69,6 +75,7 @@ function changeState(idCurrent, oldState, newState) {
     })
     allCard[newState] =newStateObject
     allCard[oldState]=oldStateObject
+    if (allCard['done'].length==0) {delAllEllement.disabled=true}
     localStorage.setItem('card', JSON.stringify(allCard))
 }
 

@@ -42,43 +42,55 @@ function createToDo() {
 }
 
 function renderToDo({id, title, body, userName, time, state}) {
-    let btnBack = ''
-    let btnNext = ''
+    let btnBack, buttonDel, buttonEdit, btnNext = ''
+    // let btnNext = ''
     let colorTodo
     switch (state) {
         case 'todo':
             colorTodo = 'green'
             btnBack = 'none'
+
             break;
         case 'progress':
             colorTodo = 'gray'
+            buttonEdit = 'none'
+            buttonDel = 'none'
             break;
         case 'done':
             colorTodo = 'cyan'
             btnNext = 'none'
+            buttonEdit = 'none'
             break;
     }
     let todo = `<div class="todo ${colorTodo}" id="${id}">
                     <div class="todo_head">
-                        <div class="head_title">${title}</div>
+
                         <div class="head_btn">
-                            <button type="button" class="btn btn-light todobtn " data-bs-toggle="modal"
+                        <div class="id"><span><b>ID: </b></span>${id}</div>
+                        <div class="btnToDO">
+                            <button type="button" class="btn btn-light todobtn ${buttonEdit}" data-bs-toggle="modal"
                                     data-bs-target="#modalEdit" id="EditTodo">
-                                Edit
+                                Изменить
                             </button>
-                            <button type="button" class="btn btn-light todobtn" id="DeleteTodo">
-                                Delete
+                            <button type="button" class="btn btn-light todobtn ${buttonDel}" id="DeleteTodo" >
+                                Удалить
                             </button>
+                            </div>
+                        </div>
+                         <div class="head_title">
+                        <span><b>Заголовок:</b></span>
+                        ${title}
                         </div>
                     </div>
                     <div class="todo_body">
-                        <div ><button type="button" class="btn btn-light todo_back ${btnBack}" id="back"><</button></div>
-                          <div class="body_text">${body}</div>
-                        <div > <button type="button" class="btn btn-light todo_next ${btnNext}" id="next">></button></div>
+                        <button type="button" class="btn btn-light todo_back ${btnBack}" id="back"><</button>
+                          <div class="body_text"><span><b>Описание:</b></span><br>
+                        ${body}</div>
+                         <button type="button" class="btn btn-light todo_next ${btnNext}" id="next">></button>
                     </div>
                     <div class="todo_footer">
-                        <div class="todo_user">${userName}</div>
-                        <div class="todo_time">${time}</div>
+                        <div class="todo_user"><span><b>Ответсвенный:</b></span><br>${userName}</div>
+                        <div class="todo_time"><span><b>Время создания:</b></span><br>${time}</div>
                     </div>
                 </div>
             </div>`
@@ -107,6 +119,7 @@ function render(allList) {
             mainEllement.innerHTML = startinnerHTML
         })
     }
+
 }
 
 

@@ -64,7 +64,7 @@ a{
 }
 
 .card_list{
-  height: 720px;
+  height: 680px;
   display: flex;
   flex-direction: column;
   justify-content:start;
@@ -77,7 +77,6 @@ a{
 
 
 .card_title{
-  border-style: solid;
   width: 370px;
   display: flex;
   justify-content:space-between;
@@ -93,7 +92,6 @@ a{
 .card_main{
   margin-top: 20px;
   display: block;
-  height: 585px;
   overflow:auto;
 }
 
@@ -102,30 +100,13 @@ a{
   margin-top: 10px;
   display: flex;
   flex-direction: column;
-  border-radius: $radius_wraper ;
   align-self: stretch;
   justify-content:space-between;
+  border-radius: $radius_wraper ;
   border:$border solid;
   background-color:$green;
 }
-.dodo_title{
-  display: flex;
-  flex-direction: row;
-  justify-content:space-between;
-  padding: 5px 3px;
-}
-.todo_desc{
-  display: flex;
-  flex-direction: row;
-  justify-content:space-between;
-  padding: 5px 3px;
-}
-.todo_footer{
-  display: flex;
-  flex-direction: row;
-  justify-content:space-between;
-  padding: 5px 3px;
-}
+
 
 .green{
   background-color: $green;
@@ -183,8 +164,8 @@ a{
 
 .modal-footer{
   display: flex;
-  flex-direction: row;
-  justify-content:space-between;
+  justify-content:flex-end;
 }
+
 
 

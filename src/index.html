@@ -24,7 +24,7 @@
     <div class="wrapper">
         <div class="card_list">
             <div class="card_title green">
-                <div class="state">TODO</div>
+                <div class="state">Новый</div>
                 <div class="count" id="count_todo">0</div>
             </div>
             <div class="card_main" id="main_todo"></div>
@@ -33,7 +33,7 @@
         </div>
         <div class="card_list">
             <div class="card_title gray">
-                <div class="state">IN PROGRESS</div>
+                <div class="state">В работе</div>
                 <div class="count" id="count_progress">0</div>
             </div>
             <div class="card_main" id="main_progress">
@@ -43,7 +43,7 @@
         </div>
         <div class="card_list">
             <div class="card_title cyan">
-                <div class="state">DONE</div>
+                <div class="state">Закрыт</div>
                 <div class="count" id="count_done">0</div>
             </div>
             <div class="card_main" id="main_done"></div>
@@ -54,7 +54,7 @@
         <div class="card_list btn">
             <div class="d-grid gap-2">
                 <button type="button" class="cardBtn green" data-bs-toggle="modal" data-bs-target="#modalAdd"
-                        id="addTodo">ADD TODO
+                        id="addTodo">Добавить
                 </button>
 
             </div>
@@ -62,7 +62,7 @@
         <div class="card_list btn"></div>
         <div class="card_list btn">
         <div class="d-grid gap-2" id="AllDelete">
-            <button type="button" class="cardBtn cyan" id="DeleteALL">Delete ALL</button>
+            <button type="button" class="cardBtn cyan" id="DeleteALL" data-bs-toggle="modal" data-bs-target="#confirmDel">Удалить все</button>
         </div>
         </div>
     </div>
@@ -72,27 +72,32 @@
 
 
 <!-- Modal -->
-<div class="modal " id="modalAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal" id="modalAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabelEdit">Добавление ToDo</h6>
+                <h6 class="modal-title" id="exampleModalLabelEdit">Добавление задачи</h6>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p><input class="title" type="text" name="titleForm"></p>
+                <fieldset>
+                <label for=""><b>Заголовок:</b></label>
+                <input class="title" type="text" name="titleForm">
+                </fieldset>
+                <label for=""><b>Описание:</b></label>
                 <textarea class="body" cols=60 name="bodyForm"> </textarea>
+                <div class="selectUser">
+                    <label for=""><b>Ответсвенный:</b></label>
+                    <select size="1" name="userName" id="selectUser"> </select>
+
+                </div>
             </div>
             <div class="modal-footer">
-                <div class="selectUser">
-                    <p>
-                        <select size="1" name="userName" id="selectUser"> </select>
-                    </p>
-                </div>
+
                 <div class="btnform">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Отмена</button>
                     <button type="submit" class="btn btn-light" id="addConfirm" data-bs-dismiss="modal">
-                        Confirm
+                        Создать
                     </button>
                 </div>
 
@@ -105,24 +110,68 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel" >Изменение ToDo</h6>
+                <h6 class="modal-title" id="exampleModalLabel">Изменение Задачи</h6>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p><input class="title" type="text" name="titleFormEdit"></p>
+                <fieldset>
+                <label for=""><b>Заголовок:</b></label>
+               <input class="title" type="text" name="titleFormEdit">
+                </fieldset>
+                <label for=""><b>Описание:</b></label>
                 <textarea class="body" cols=60 name="bodyFormEdit"> </textarea>
+                <div class="selectUser">
+
+                    <label for=""><b>Ответсвенный:</b></label>
+                    <select size="1" name="userNameEdit" id="selectUserEdit"> </select>
+
+                </div>
             </div>
             <div class="modal-footer">
-                <div class="selectUser">
-                    <p>
-                        <select size="1" name="userNameEdit" id="selectUserEdit"> </select>
-                    </p>
-                </div>
                 <div class="btnform">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-light" id="EditConfirm" data-bs-dismiss="modal">
-                        Confirm
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Отмена</button>
+                        <button type="submit" class="btn btn-light" id="EditConfirm" data-bs-dismiss="modal">
+                        Изменить
                     </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="confirmDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabelEdit">Удаление закрытых задач</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">Вы действительно хотите удалить задачи? </div>
+            <div class="modal-footer">
+
+                <div class="btnform">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Отмена</button>
+                    <button type="submit" class="btn btn-light" id="delConfirm" data-bs-dismiss="modal">
+                        Удалить
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="upLimit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabelEdit">Предупреждение</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">У вас больше 5 задач в статусе 'В работе' </div>
+            <div class="modal-footer">
+                <div class="btnform">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Принять</button>
                 </div>
 
             </div>

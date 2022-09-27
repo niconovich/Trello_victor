@@ -16,16 +16,38 @@ const allToDo = {
     'done': [],
 }
 
-let wrapperEllement = $('.wrapper')
-let wrapperBtnEllement = $('.wrapperBtn')
-let modalAddEllement = $('#modalAdd')
-let modalEditEllement = $('#modalEdit')
+const delAllEllement=$('#DeleteALL')
+const wrapperEllement = $('.wrapper')
+const wrapperBtnEllement = $('.wrapperBtn')
+const modalAddEllement = $('#modalAdd')
+const modalEditEllement = $('#modalEdit')
+const delConfirmEllement = $('#delConfirm')
 
 modalAddEllement.addEventListener('click', function (event) {
     let target = event.target
+
     if (target.id == 'addConfirm') {
         log('addConfirm')
         createToDo()
+    }
+})
+
+
+delConfirmEllement.addEventListener('click', function (event) {
+    const target = event.target
+    if (target.id == 'delConfirm') {
+        log('DeleteALL')
+        let cardStorage = JSON.parse(localStorage.getItem('card'))
+        let newCardStorage = []
+        cardStorage['done'].forEach((item) => {
+            if (item.state != 'done') {
+                newCardStorage.push(item)
+            }
+        })
+        cardStorage['done'] = newCardStorage
+        localStorage.setItem('card', JSON.stringify(cardStorage))
+        render(cardStorage)
+        delAllEllement.disabled = true
     }
 })
 
@@ -38,9 +60,8 @@ modalEditEllement.addEventListener('click', function (event) {
         let body = $('[name="bodyFormEdit"]').value
         let userNameId = $('[name="userNameEdit"]').value
         setCard(idCurrent,title,body,userNameId)
-
         let cardStorage = localStorage.getItem('card');
-        let card = cardStorage ? JSON.parse(cardStorage) : []
+        let card = cardStorage ? JSON.parse(cardStorage) : allToDo
         render(card)
 
     }
@@ -53,24 +74,14 @@ wrapperBtnEllement.addEventListener('click', function (event) {
         log('addTodo')
         //Формирование списка пользователей
         renderAdd()
-    } else if (target.id == 'DeleteALL') {
-        let cardStorage = JSON.parse(localStorage.getItem('card'))
-        let newCardStorage = []
-        cardStorage['done'].forEach((item)=>{
-            if (item.state!='done'){
-                newCardStorage.push(item)
-            }
-        })
-        localStorage.setItem('card', JSON.stringify(newCardStorage));
-        render(newCardStorage)
     }
-
-
-})
+       // localStorage.setItem('card', JSON.stringify(newCardStorage));
+       // render(newCardStorage)
+ })
 
 wrapperEllement.addEventListener('click', function (event) {
     let target = event.target
-    const idCurrent = target.parentElement.parentElement.parentElement.id
+    let idCurrent = target.parentElement.parentElement.id
     let todo=getCard(idCurrent)
     if (target.id == 'next') {
         let nextState=todo.state=='todo'?'progress':'done'
@@ -83,11 +94,14 @@ wrapperEllement.addEventListener('click', function (event) {
         let cardStorage = JSON.parse(localStorage.getItem('card'))
         render(cardStorage)
     } else if (target.id == 'DeleteTodo') {
-        // const idDelete = target.parentElement.parentElement.parentElement.id
+        idCurrent=event.target.parentElement.parentElement.parentElement.id
+        log(idCurrent)
         deleteCard(idCurrent)
         let cardStorage = JSON.parse(localStorage.getItem('card'))
         render(cardStorage)
     } else if (target.id == 'EditTodo') {
+        target = event.target
+        idCurrent=target.parentElement.parentElement.parentElement.parentElement.id
         renderEdit(idCurrent)
     }
 
@@ -96,7 +110,15 @@ wrapperEllement.addEventListener('click', function (event) {
 
 window.addEventListener("load", function (event) {
     log('All resources finished loading!');
+
     let cardStorage = localStorage.getItem('card');
-    let card = cardStorage ? JSON.parse(cardStorage) : allToDo
-    render(card)
+    let allCard = cardStorage ? JSON.parse(cardStorage) : allToDo
+    localStorage.setItem('card', JSON.stringify(allCard))
+    if (allCard['done'].length==0)    {
+        delAllEllement.disabled=true
+    } else {
+        delAllEllement.disabled=false
+    }
+
+    render(allCard)
 })
