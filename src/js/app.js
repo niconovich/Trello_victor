@@ -82,23 +82,26 @@ wrapperBtnEllement.addEventListener('click', function (event) {
 wrapperEllement.addEventListener('click', function (event) {
     let target = event.target
     let idCurrent = target.parentElement.parentElement.id
-    let todo=getCard(idCurrent)
+
     if (target.id == 'next') {
+        let todo=getCard(idCurrent)
         let nextState=todo.state=='todo'?'progress':'done'
         changeState(idCurrent,todo.state,nextState)
         let cardStorage = JSON.parse(localStorage.getItem('card'))
         render(cardStorage)
     } else if (target.id == 'back') {
+        let todo=getCard(idCurrent)
         let nextState=todo.state=='done'?'progress':'todo'
         changeState(idCurrent,todo.state,nextState)
         let cardStorage = JSON.parse(localStorage.getItem('card'))
         render(cardStorage)
     } else if (target.id == 'DeleteTodo') {
-        idCurrent=event.target.parentElement.parentElement.parentElement.id
+        idCurrent=event.target.parentElement.parentElement.parentElement.parentElement.id
         log(idCurrent)
         deleteCard(idCurrent)
         let cardStorage = JSON.parse(localStorage.getItem('card'))
         render(cardStorage)
+        if (cardStorage['done'].length==0) {delAllEllement.disabled=true}
     } else if (target.id == 'EditTodo') {
         target = event.target
         idCurrent=target.parentElement.parentElement.parentElement.parentElement.id

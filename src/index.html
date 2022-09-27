@@ -76,18 +76,18 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabelEdit">Добавление задачи</h6>
+                <h6 class="modal-title" id="exampleModalLabelAdd">Добавление задачи</h6>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <fieldset>
-                <label for=""><b>Заголовок:</b></label>
+                <label ><b>Заголовок:</b></label>
                 <input class="title" type="text" name="titleForm">
                 </fieldset>
-                <label for=""><b>Описание:</b></label>
+                <label ><b>Описание:</b></label>
                 <textarea class="body" cols=60 name="bodyForm"> </textarea>
                 <div class="selectUser">
-                    <label for=""><b>Ответсвенный:</b></label>
+                    <label ><b>Ответсвенный:</b></label>
                     <select size="1" name="userName" id="selectUser"> </select>
 
                 </div>
@@ -115,14 +115,14 @@
             </div>
             <div class="modal-body">
                 <fieldset>
-                <label for=""><b>Заголовок:</b></label>
-               <input class="title" type="text" name="titleFormEdit">
+                <label for="titleFormEdit"><b>Заголовок:</b></label>
+               <input class="title" type="text" name="titleFormEdit" id="titleFormEdit">
                 </fieldset>
-                <label for=""><b>Описание:</b></label>
-                <textarea class="body" cols=60 name="bodyFormEdit"> </textarea>
+                <label for="bodyFormEdit"><b>Описание:</b></label>
+                <textarea class="body" cols=60 name="bodyFormEdit" id="bodyFormEdit"> </textarea>
                 <div class="selectUser">
 
-                    <label for=""><b>Ответсвенный:</b></label>
+                    <label for="selectUserEdit"><b>Ответсвенный:</b></label>
                     <select size="1" name="userNameEdit" id="selectUserEdit"> </select>
 
                 </div>
@@ -143,7 +143,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabelEdit">Удаление закрытых задач</h6>
+                <h6 class="modal-title" id="exampleModalLabelDel">Удаление закрытых задач</h6>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">Вы действительно хотите удалить задачи? </div>
@@ -165,7 +165,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabelEdit">Предупреждение</h6>
+                <h6 class="modal-title" id="exampleModalLabelInfo">Предупреждение</h6>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">У вас больше 5 задач в статусе 'В работе' </div>
